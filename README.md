@@ -1,2 +1,0 @@
-# buhtas
-PW in TS
