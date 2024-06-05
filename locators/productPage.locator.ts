@@ -9,6 +9,7 @@ export default class ProductPageLocators {
     readonly AddToCartBoltshirtBtn: Locator;
     readonly InventoryNameBackpack: Locator;
     readonly InventoryNameTshirt: Locator;
+    readonly RemoveFromCart: Locator;
 
     constructor (page: Page) {
         this.HamburgerBtn = page.locator(`#react-burger-menu-btn`);
@@ -18,6 +19,7 @@ export default class ProductPageLocators {
         this.AddToCartBoltshirtBtn = page.getByTestId('add-to-cart-sauce-labs-bolt-t-shirt');
         this.InventoryNameBackpack = page.locator('#item_4_title_link > div');
         this.InventoryNameTshirt = page.locator('#item_1_title_link > div');
+        this.RemoveFromCart = page.getByTestId('remove-sauce-labs-backpack').first();
 
     }
 

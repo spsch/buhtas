@@ -1,6 +1,7 @@
 import {Page, expect} from "@playwright/test";
 import ProductPageLocators from "../locators/productPage.locator";
 import testproducts from "../testData/products.json"
+import exp from "constants";
 
 export default class productPage {
     readonly page: Page;
@@ -38,6 +39,20 @@ export default class productPage {
     async checkItemNames() {
         await expect(this.productpagelocators.InventoryNameBackpack).toContainText(this.BACKPACK);
         await expect(this.productpagelocators.InventoryNameTshirt).toContainText(this.TSHIRT);
+    }
+
+    async addBackpackToCart() {
+        await this.productpagelocators.AddToCartBackpackBtn.click();
+        await expect(this.page.getByTestId('remove-sauce-labs-backpack')).toBeVisible();
+    }
+
+    async removeBackpackFromCart() {
+        await this.productpagelocators.RemoveFromCart.click();
+        await expect(this.productpagelocators.AddToCartBackpackBtn).toBeVisible();
+    }
+
+    async clickOnBackpack() {
+        await this.page.locator('#item_4_title_link > div').click();
     }
 
 }
