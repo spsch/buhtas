@@ -2,7 +2,10 @@
   "name": "buhtas",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test-ui": "npx playwright test --ui",
+    "e2e": "npx playwright test --ui"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
