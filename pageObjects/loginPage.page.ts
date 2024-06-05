@@ -1,4 +1,4 @@
-import {Page, expect} from "@playwright/test"
+import {Page, expect} from "@playwright/test";
 import LoginPageLocators from "../locators/loginPage.locator";
 import testUsers from "../testData/testUsers.json";
 
@@ -41,5 +41,19 @@ export default class loginPage{
         await this.loginPageLocators.LoginButton.click();
     }
     
+    async login() {
+        await this.page.goto('/');
+        await this.loginPageLocators.UserEmail.fill(this.USERNAME);
+        await this.loginPageLocators.UserPassword.fill(this.PWD);
+        await this.loginPageLocators.LoginButton.click();
+    }
+
+    async loginfail() {
+        await this.page.goto('/');
+        await this.loginPageLocators.UserEmail.fill('');
+        await this.loginPageLocators.UserPassword.fill('');
+        await this.loginPageLocators.LoginButton.click();
+        await expect(this.loginPageLocators.LoginErrorMsg).toBeVisible();
+    }
 
 }
