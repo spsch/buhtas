@@ -1,5 +1,6 @@
 import {Page, expect} from "@playwright/test";
 import CartPageLocators from "../locators/cartPage.locator";
+import exp from "constants";
 
 export default class cartPage {
 
@@ -13,7 +14,8 @@ export default class cartPage {
 
     async goToCart() {
         this.page.goto('/cart.html');
-        await expect(this.page.locator('#header_container > div.header_secondary_container > span')).toContainText('Your Cart');
+        //await expect(this.page.locator('#header_container > div.header_secondary_container > span')).toContainText('Your Cart');
+        await expect(this.page.locator('[data-test="title"]')).toContainText('Your Cart');
     }
 
     async checkContinueShoppingBtn() {
