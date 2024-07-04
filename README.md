@@ -71,3 +71,4 @@ It is possible to run every test isolated in any order or run e2e suite
 
 # License
 - see LICENSE file
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
